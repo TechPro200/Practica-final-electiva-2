@@ -1,8 +1,11 @@
 const http = require('http');
 const fs = require('fs');
+const path = require('path');
 
 const server = http.createServer((req, res) => {
-  fs.readFile('index.html', (err, data) => {
+  const filePath = path.join(__dirname, 'index.html');
+
+  fs.readFile(filePath, (err, data) => {
     if (err) {
       res.writeHead(500);
       res.end('Error');
@@ -16,7 +19,9 @@ const server = http.createServer((req, res) => {
 module.exports = server;
 
 if (require.main === module) {
-  server.listen(3000, () => {
-    console.log('Servidor corriendo en http://localhost:3000');
+  const PORT = process.env.PORT || 3000;
+
+  server.listen(PORT, () => {
+    console.log(`Servidor corriendo en puerto ${PORT}`);
   });
 }
