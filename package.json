@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "node server.js",
-    "test": "jest"
+    "test": "npx jest"
   },
   "devDependencies": {
     "jest": "^29.0.0",
