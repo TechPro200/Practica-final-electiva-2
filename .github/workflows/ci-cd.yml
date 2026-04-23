@@ -37,3 +37,6 @@ jobs:
 
     - name: Push Docker
       run: docker push ${{ secrets.DOCKER_USERNAME }}/proyecto-final:latest
+
+    - name: Debug usuario
+      run: echo "USER=${{ secrets.DOCKER_USERNAME }}"
